@@ -295,10 +295,10 @@
 
     /* ================= SECTIONS ================= */
     .section{
-      padding:48px 0;
+      padding:40px 0;
     }
     .section-head{
-      margin-bottom:24px;
+      margin-bottom:22px;
       text-align:center;
     }
     .section-head h2{
@@ -318,8 +318,8 @@
     .about-grid{
       display:grid;
       grid-template-columns:280px minmax(0,1fr);
-      gap:22px;
-      align-items:flex-start;
+      gap:20px;
+      align-items:stretch;          /* equal height */
       max-width:960px;
       margin:0 auto;
     }
@@ -328,7 +328,8 @@
       border:1px solid var(--ring-soft);
       background:linear-gradient(145deg,rgba(15,23,42,.96),rgba(15,23,42,.86));
       box-shadow:0 18px 40px rgba(15,23,42,.9);
-      padding:18px 18px 20px;
+      padding:18px 18px 18px;
+      height:100%;                 /* equal height */
     }
     .about-profile{
       display:flex;
@@ -336,6 +337,7 @@
       align-items:center;
       text-align:center;
       gap:10px;
+      height:100%;
     }
     .avatar-wrap{
       width:130px;height:130px;
@@ -376,7 +378,7 @@
       flex-wrap:wrap;
       gap:8px;
       justify-content:center;
-      margin-top:12px;
+      margin-top:10px;
     }
     .stat-chip{
       padding:6px 10px;
@@ -387,7 +389,7 @@
     }
 
     .about-socials{
-      margin-top:14px;
+      margin-top:12px;
       display:flex;
       justify-content:center;
       gap:8px;
@@ -420,13 +422,13 @@
       color:var(--ink);
     }
     .about-list{
-      margin-top:12px;
+      margin-top:10px;
       font-size:13px;
       color:var(--muted);
       padding-left:18px;
     }
     .about-list li{
-      margin-bottom:6px;
+      margin-bottom:5px;
     }
 
     @media(max-width:980px){
@@ -437,7 +439,7 @@
 
     /* ================= MY PHOTOGRAPHY ================= */
     .featured-slider{
-      margin-bottom:24px;
+      margin-bottom:22px;
       overflow-x:auto;
       padding-bottom:6px;
       max-width:960px;
@@ -479,7 +481,7 @@
       background:linear-gradient(to bottom,rgba(5,8,22,.98),rgba(5,8,22,.94));
       border-top:1px solid var(--ring-soft);
       border-bottom:1px solid var(--ring-soft);
-      padding:12px 10px;
+      padding:10px 10px;
       display:flex;
       justify-content:center;
       gap:10px;
@@ -488,7 +490,7 @@
     }
     .filter-bar button{
       border-radius:999px;
-      padding:8px 15px;
+      padding:7px 14px;
       border:1px solid var(--ring-soft);
       background:rgba(15,23,42,.92);
       color:#e5e7eb;
@@ -508,7 +510,7 @@
     }
 
     .gallery-wrap{
-      padding:36px 6% 70px;
+      padding:32px 6% 56px;
       max-width:1600px;
       margin:0 auto;
     }
@@ -584,14 +586,14 @@
     .contact-grid{
       display:grid;
       grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr);
-      gap:26px;
+      gap:22px;
       max-width:960px;
       margin:0 auto;
     }
     .contact-chips{
       display:grid;
       gap:10px;
-      margin-top:8px;
+      margin-top:6px;
     }
     .chip{
       display:flex;
@@ -603,6 +605,8 @@
       border:1px solid var(--ring-soft);
       font-size:13px;
       color:var(--muted);
+      text-decoration:none;
+      transition:.18s;
     }
     .chip-icon{
       width:26px;height:26px;
@@ -612,10 +616,15 @@
       border:1px solid var(--accent-soft);
       color:var(--accent);
       font-size:13px;
+      flex-shrink:0;
     }
     .chip span{
       color:var(--ink);
       font-weight:500;
+    }
+    .chip:hover{
+      border-color:var(--accent);
+      box-shadow:0 0 14px var(--accent-soft);
     }
     .contact-label{
       font-size:11px;
@@ -627,11 +636,8 @@
       font-size:13px;
       margin-top:2px;
     }
-    .contact-value a{
-      color:var(--accent);
-    }
     .contact-note{
-      margin-top:10px;
+      margin-top:8px;
       font-size:12px;
       color:var(--muted);
     }
@@ -811,19 +817,19 @@
               <div class="stat-chip">Based in Bangladesh · Open to collabs</div>
             </div>
             <div class="about-socials">
-              <a class="social-icon" href="https://www.instagram.com/atik_ahmed_paradox" target="_blank" rel="noreferrer">
+              <a class="social-icon" href="https://www.instagram.com/atik_ahmed_paradox">
                 <i class="fa-brands fa-instagram"></i>
               </a>
-              <a class="social-icon" href="https://www.facebook.com/AtikAhmedPeradox" target="_blank" rel="noreferrer">
+              <a class="social-icon" href="https://www.facebook.com/AtikAhmedPeradox">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
-              <a class="social-icon" href="https://www.linkedin.com/in/atix/" target="_blank" rel="noreferrer">
+              <a class="social-icon" href="https://www.linkedin.com/in/atix/">
                 <i class="fa-brands fa-linkedin-in"></i>
               </a>
-              <a class="social-icon" href="https://github.com/Atik119120" target="_blank" rel="noreferrer">
+              <a class="social-icon" href="https://github.com/Atik119120">
                 <i class="fa-brands fa-github"></i>
               </a>
-              <a class="social-icon" href="https://www.fiverr.com/atik_ahmmad" target="_blank" rel="noreferrer">
+              <a class="social-icon" href="https://www.fiverr.com/atik_ahmmad">
                 <i class="fa-solid fa-briefcase"></i>
               </a>
             </div>
@@ -906,27 +912,27 @@
       <div class="contact-grid">
         <div class="card">
           <div class="contact-chips">
-            <div class="chip">
+            <a class="chip" href="https://www.instagram.com/atik_ahmed_paradox">
               <div class="chip-icon"><i class="fa-brands fa-instagram"></i></div>
               <div>
                 <div class="contact-label">Instagram</div>
-                <div class="contact-value"><span>@atik_ahmed_paradox</span> — best for quick DMs & previews.</div>
+                <div class="contact-value"><span>@atik_ahmed_paradox</span> — quick DMs & previews.</div>
               </div>
-            </div>
-            <div class="chip">
+            </a>
+            <a class="chip" href="https://www.facebook.com/AtikAhmedPeradox">
               <div class="chip-icon"><i class="fa-brands fa-facebook-f"></i></div>
               <div>
                 <div class="contact-label">Facebook</div>
                 <div class="contact-value"><span>/AtikAhmedPeradox</span> — page messages & updates.</div>
               </div>
-            </div>
-            <div class="chip">
+            </a>
+            <a class="chip" href="https://www.linkedin.com/in/atix/">
               <div class="chip-icon"><i class="fa-brands fa-linkedin-in"></i></div>
               <div>
                 <div class="contact-label">LinkedIn</div>
                 <div class="contact-value"><span>/in/atix</span> — creative & professional network.</div>
               </div>
-            </div>
+            </a>
           </div>
           <p class="contact-note">
             When you reach out, share the type of shoot, location, date, mood references and budget range.
@@ -971,7 +977,7 @@
       Crafted frames, not just photos — visual stories in black-classic tone.
     </div>
     <div>
-      © 2025 <a href="https://www.facebook.com/AtikAhmedPeradox" target="_blank" rel="noreferrer">Atik Ahmed</a> — Visual Photographer &amp; Cinematographer
+      © 2025 <a href="https://www.facebook.com/AtikAhmedPeradox">Atik Ahmed</a> — Visual Photographer &amp; Cinematographer
     </div>
   </footer>
 
