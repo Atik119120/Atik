@@ -2,428 +2,708 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Atik Visuals – Every Pixel Tells a Story</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Atik Ahamed – Photographer, Graphic Designer, Web & Video Creator." />
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <title>Atik Ahmed — Visual Photographer & Cinematographer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio of Atik Ahmed — Visual Photographer & Cinematographer. Cinematic portraits, street, nature, landscape and product visuals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+  <link rel="icon" type="image/png" href="https://atikahmed.online/wp-content/uploads/2025/10/atix-logo-scaled-e1762443078127.png" />
   <style>
-    :root {
-      --bg: #050509;
-      --bg-soft: #0b0b12;
-      --bg-soft-2: #151521;
-      --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.16);
-      --accent-2: #22d3ee;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-soft: rgba(148, 163, 184, 0.25);
-      --radius-xl: 22px;
-      --radius-2xl: 28px;
-      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.8);
-      --transition: 200ms ease-out;
-      --max-width: 1120px;
+    :root{
+      --ink:#fff;
+      --muted:#bdbdbd;
+      --ring:rgba(255,255,255,.1);
+      --glow:rgba(255,255,255,.18);
+      --radius:18px;
+    }
+    *{box-sizing:border-box;}
+    html,body{
+      background:#000;
+      color:var(--ink);
+      margin:0; padding:0;
+      font-family:'Poppins',system-ui,Segoe UI,Inter,Roboto,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ============ GLOBAL LAYOUT ============ */
+    .container{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+    .section{
+      padding:60px 0;
+    }
+    .section-head{
+      margin-bottom:28px;
+    }
+    .section-head h2{
+      font-size:24px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin:0 0 6px;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      max-width:520px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ============ HEADER / NAVBAR ============ */
+    header{
+      width:100%;
+      border-bottom:1px solid var(--ring);
+      background:rgba(0,0,0,.96);
+      position:relative;
+      z-index:100;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 20px;
+      gap:16px;
+    }
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .nav-logo{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      overflow:hidden;
+      border:1px solid var(--ring);
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .nav-logo img{
+      width:100%;height:100%;object-fit:contain;
+    }
+    .nav-title{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .nav-title-main{
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+    }
+    .nav-title-sub{
+      font-size:11px;
+      color:var(--muted);
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .nav-links{
+      display:flex;
+      gap:16px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+    .nav-links a{
+      color:var(--muted);
+      position:relative;
+      padding-bottom:2px;
+    }
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;bottom:0;
+      width:0;height:2px;
+      background:#fff;
+      transition:.2s;
+    }
+    .nav-links a:hover{
+      color:#fff;
+    }
+    .nav-links a:hover::after{
+      width:100%;
+    }
+    @media(max-width:720px){
+      .nav{flex-direction:column;align-items:flex-start;}
+      .nav-links{flex-wrap:wrap;}
     }
 
-    body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 40%, #000 100%);
-      color: var(--text-main);
+    /* ============ HERO (FROM YOUR TEMPLATE) ============ */
+    .atix-hero{
+      position:relative;
+      width:100%;
+      aspect-ratio:820/312;
+      min-height:280px;
+      overflow:hidden;
+      isolation:isolate;
+      border-bottom:1px solid var(--ring);
+    }
+    .atix-hero .slide{
+      position:absolute;inset:0;
+      background:#000 center/cover no-repeat;
+      opacity:0;transition:opacity 1s ease-in-out,transform 6s ease;
+      transform:scale(1.1);
+      filter:brightness(.85) contrast(1.05) saturate(1.08);
+    }
+    .atix-hero .slide.active{opacity:1;transform:scale(1.02);}
+    .atix-hero::after{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(120% 100% at 50% 0%,rgba(0,0,0,.3),transparent 60%),
+                 linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.85));
+      backdrop-filter:blur(4px);
+    }
+    .atix-hero .overlay{
+      position:absolute;inset:0;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;z-index:2;padding:6vw 4vw;
+    }
+    .brand{
+      font-size:clamp(28px,5vw,58px);
+      font-weight:900;letter-spacing:.22em;
+      text-transform:uppercase;line-height:1.05;
+    }
+    .brand .accent{
+      background:linear-gradient(90deg,#fff,#dcdcdc);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 8px 22px rgba(255,255,255,.2));
+    }
+    .tag{
+      margin-top:.4rem;
+      letter-spacing:.45em;
+      font-size:clamp(11px,1.3vw,15px);
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .bio{
+      margin-top:1rem;
+      max-width:900px;
+      color:#d7d7d7;
+      font-size:clamp(13px,1.5vw,16px);
+      line-height:1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    /* ============ FILTER BAR ============ */
+    .atix-filter{
+      position:sticky;top:0;z-index:50;
+      background:rgba(0,0,0,.95);
+      border-top:1px solid var(--ring);
+      border-bottom:1px solid var(--ring);
+      display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+      padding:14px 10px;
+      backdrop-filter:blur(10px);
+    }
+    .atix-filter button{
+      border:1px solid var(--ring);
+      background:rgba(255,255,255,.07);
+      color:#eee;
+      padding:9px 18px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      transition:.25s;
+    }
+    .atix-filter button:hover,.atix-filter button.active{
+      background:#fff;color:#000;box-shadow:0 0 20px var(--glow);
     }
 
-    img {
-      max-width: 100%;
+    /* ============ MASONRY GRID ============ */
+    .atix-grid{
+      column-count:4;
+      column-gap:22px;
+      padding:50px 6% 80px;
+      max-width:1600px;
+      margin:0 auto;
+    }
+    .atix-card{
+      display:inline-block;width:100%;
+      margin:0 0 22px;break-inside:avoid;
+      border-radius:var(--radius);
+      overflow:hidden;position:relative;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--ring);
+      box-shadow:0 12px 30px rgba(0,0,0,.7);
+      transform:translateY(12px);
+      opacity:0;transition:opacity .6s ease,transform .6s ease;
+    }
+    .atix-card.visible{opacity:1;transform:none;}
+    .atix-card img{
+      width:100%;height:auto;display:block;object-fit:cover;
+      border-radius:var(--radius);
+      filter:brightness(1.05);
+      transition:transform .5s ease,filter .5s ease;
+    }
+    .atix-card:hover img{
+      transform:scale(1.06);
+      filter:brightness(1.25);
+    }
+    .atix-card::after{
+      content:attr(data-cat);
+      position:absolute;
+      bottom:10px;left:12px;
+      background:rgba(0,0,0,.55);
+      padding:3px 9px;
+      font-size:.75rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      border-radius:6px;
+      opacity:0;
+      transform:translateY(10px);
+      transition:.35s ease;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .atix-card:hover::after{opacity:1;transform:none;}
+
+    /* ============ FOOTER ============ */
+    .atix-foot{
+      text-align:center;padding:40px 20px 60px;
+      color:#a8a8a8;border-top:1px solid var(--ring);
+      font-size:13px;
+    }
+    .atix-foot a{color:#fff;font-weight:800;text-decoration:none;}
+    .atix-foot a:hover{color:#f6cf76;}
+
+    /* ============ ABOUT SECTION ============ */
+    .about-grid{
+      display:grid;
+      grid-template-columns:280px minmax(0,1fr);
+      gap:28px;
+      align-items:flex-start;
+    }
+    .about-card{
+      border-radius:var(--radius);
+      border:1px solid var(--ring);
+      background:rgba(255,255,255,.03);
+      padding:20px;
+    }
+    .about-profile{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:12px;
+    }
+    .about-avatar-wrap{
+      width:140px;height:140px;border-radius:999px;
+      padding:3px;
+      background:conic-gradient(from 160deg,#fff,rgba(255,255,255,.2),#fff);
+    }
+    .about-avatar-inner{
+      width:100%;height:100%;
+      border-radius:inherit;
+      background:#000;
+      padding:4px;
+    }
+    .about-avatar-inner img{
+      width:100%;height:100%;object-fit:cover;border-radius:999px;
+    }
+    .about-name{
+      font-size:20px;font-weight:600;letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .about-role{
+      font-size:12px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;
+    }
+    .about-tags{
+      display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px;
+    }
+    .about-tag{
+      font-size:10px;padding:4px 9px;
+      border-radius:999px;border:1px solid var(--ring);
+      text-transform:uppercase;letter-spacing:.14em;
+      color:var(--muted);
+    }
+    .about-socials{
+      margin-top:14px;font-size:12px;
+    }
+    .about-socials a{
+      display:block;
+      margin-bottom:5px;
+      color:var(--muted);
+    }
+    .about-socials a span{
+      color:#fff;font-weight:500;
+    }
+    .about-text{
+      font-size:14px;color:var(--muted);line-height:1.7;
+    }
+    .about-text strong{color:#fff;}
+
+    /* ============ CONTACT SECTION ============ */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr);
+      gap:28px;
+    }
+    .contact-card{
+      border-radius:var(--radius);
+      border:1px solid var(--ring);
+      background:rgba(255,255,255,.03);
+      padding:20px;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .contact-list{
+      margin-top:6px;
+    }
+    .contact-row{
+      margin-bottom:10px;
+    }
+    .contact-label{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:11px;
+      color:var(--muted);
+    }
+    .contact-value{
+      font-size:13px;
+    }
+    .contact-value a{
+      color:#fff;
+    }
+    .contact-note{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .contact-form{
+      display:grid;
+      gap:10px;
+      font-size:13px;
+    }
+    .field label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+    .field input,
+    .field textarea{
+      width:100%;
+      border-radius:12px;
+      border:1px solid var(--ring);
+      background:rgba(0,0,0,.9);
+      padding:8px 10px;
+      color:#fff;
+      font-family:inherit;
+      font-size:13px;
+      outline:none;
+      transition:.15s;
+    }
+    .field input:focus,
+    .field textarea:focus{
+      border-color:#fff;
+      box-shadow:0 0 0 1px rgba(255,255,255,.25);
+    }
+    .field textarea{
+      min-height:90px;
+      resize:vertical;
+    }
+    .btn-primary{
+      border:none;
+      border-radius:999px;
+      padding:9px 18px;
+      background:#fff;
+      color:#000;
+      font-weight:600;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      cursor:pointer;
+      margin-top:4px;
+    }
+    .btn-primary:hover{
+      box-shadow:0 0 18px var(--glow);
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    @media(max-width:1024px){
+      .atix-grid{column-count:3;}
+      .about-grid{grid-template-columns:1fr;}
+      .contact-grid{grid-template-columns:1fr;}
     }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.6rem;
+    @media(max-width:768px){
+      .atix-grid{column-count:3;}
     }
-
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(18px);
-      background: rgba(2, 6, 23, 0.7);
-    }
-
-    .nav {
-      padding: 1rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, #4f46e5, #22d3ee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .logo-text-main {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      margin-left: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* HERO */
-    main {
-      flex: 1;
-    }
-
-    .hero {
-      padding: 3rem 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 2rem;
-    }
-
-    .hero-heading {
-      font-size: 2.3rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero-heading span {
-      background: linear-gradient(to right, #e5e7eb, #a5b4fc, #22d3ee);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      max-width: 450px;
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-top: 1rem;
-    }.role-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .chip {
-      font-size: 0.75rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
-      color: var(--text-muted);
-    }
-
-    .chip-strong {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #020617;
-      font-weight: 600;
-      border: none;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      font-size: 0.84rem;
-      padding: 0.55rem 1.3rem;
-      border-radius: 999px;
-      cursor: pointer;
-      border: 1px solid transparent;
-      display: inline-flex;
-      gap: 0.5rem;
-      align-items: center;
-      margin-top: 1rem;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #020617;
-      font-weight: 600;
-    }
-
-    .btn-ghost {
-      background: rgba(15,23,42,0.9);
-      color: var(--text-muted);
-      border-color: rgba(148,163,184,0.45);
-    }
-
-    .hero-right {
-      background: rgba(15,23,42,0.92);
-      border-radius: var(--radius-2xl);
-      border: 1px solid var(--border-soft);
-      padding: 1.3rem;
-    }
-
-    .disciplines {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-    }
-
-    .pill-soft {
-      border: 1px solid rgba(148,163,184,0.4);
-      background: rgba(15,23,42,0.92);
-      padding: 0.38rem 0.7rem;
-      font-size: 0.74rem;
-      border-radius: 999px;
-      color: var(--text-muted);
-    }
-
-    /* ABOUT */
-    #about {
-      padding: 3rem 0;
-    }
-
-    .about-card {
-      background: rgba(15,23,42,0.96);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-soft);
-      padding: 1.4rem;
-      margin-top: 1.4rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .about-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .about-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+    @media(max-width:520px){
+      .atix-grid{column-count:2;}
     }
   </style>
 </head>
-
 <body>
-<div class="page">
 
-<header>
-  <div class="container nav">
-    <div class="logo-mark">AV</div>
-    <div class="logo-text-main">Atik Visuals</div>
+  <!-- ============ HEADER ============ -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="nav-logo">
+            <img src="https://atikahmed.online/wp-content/uploads/2025/10/atix-logo-scaled-e1762443078127.png" alt="Atik visuals logo">
+          </div>
+          <div class="nav-title">
+            <div class="nav-title-main">ATIK VISUALS</div>
+            <div class="nav-title-sub">Visual Photographer & Cinematographer</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#worlds">Worlds</a>
-      <a href="#work">Highlights</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="home">
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1 class="hero-heading">
-        Every pixel <span>tells a story.</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        I’m Atik Ahamed — crafting clean visuals across
-        photography, graphics, websites & video.
+  <!-- ============ HERO ============ -->
+  <section class="atix-hero" id="top">
+    <div class="overlay">
+      <h1 class="brand">ATIK <span class="accent">VISUALS</span></h1>
+      <div class="tag">EVERY FRAME HOLDS A STORY</div>
+      <p class="bio">
+        I’m <b>Atik Ahmed</b> — a visual photographer and cinematographer obsessed with light, shadows and honest emotion.  
+        From portraits and streets to products and minimal frames, I build black-classic visuals that feel cinematic yet real.
       </p>
+    </div>
+  </section>
 
-      <div class="role-chips">
-        <span class="chip chip-strong">Photographer</span>
-        <span class="chip">Graphic Designer</span>
-        <span class="chip">Web Creator</span>
-        <span class="chip">Video Editor</span>
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>ABOUT</h2>
+        <p>A short look at the person behind the lens and the visuals you’re scrolling through.</p>
       </div>
 
-      <a href="#contact" class="btn-primary">Let’s work together ↗</a>
-    </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-profile">
+            <div class="about-avatar-wrap">
+              <div class="about-avatar-inner">
+                <img src="https://atikahmed.online/wp-content/uploads/2025/11/545433796_122097887739015575_5619255600403532663_n.jpg" alt="Atik Ahmed profile">
+              </div>
+            </div>
+            <div class="about-name">ATIK AHMED</div>
+            <div class="about-role">Visual Photographer & Cinematographer</div>
+            <div class="about-tags">
+              <span class="about-tag">Portrait</span>
+              <span class="about-tag">Street</span>
+              <span class="about-tag">Product</span>
+              <span class="about-tag">Minimal</span>
+            </div>
+            <div class="about-socials">
+              <a href="https://www.instagram.com/atik_ahmed_paradox" target="_blank" rel="noreferrer">
+                Instagram: <span>@atik_ahmed_paradox</span>
+              </a>
+              <a href="https://www.facebook.com/AtikAhmedPeradox" target="_blank" rel="noreferrer">
+                Facebook: <span>/AtikAhmedPeradox</span>
+              </a>
+              <a href="https://www.linkedin.com/in/atix/" target="_blank" rel="noreferrer">
+                LinkedIn: <span>/in/atix</span>
+              </a>
+              <a href="https://www.fiverr.com/atik_ahmmad" target="_blank" rel="noreferrer">
+                Fiverr: <span>@atik_ahmmad</span>
+              </a>
+              <a href="https://github.com/Atik119120" target="_blank" rel="noreferrer">
+                GitHub: <span>/Atik119120</span>
+              </a>
+              <a href="https://atikahmed.online/" target="_blank" rel="noreferrer">
+                Portfolio: <span>atikahmed.online</span>
+              </a>
+            </div>
+          </div>
+        </div>
 
-    <div class="hero-right">
-      <h3>Artist · Designer · Maker</h3>
-      <p style="font-size:0.8rem;color:var(--text-muted);">
-        Based in Bangladesh · Remote-friendly
-      </p>
-
-      <div class="disciplines">
-        <div class="pill-soft">Photography</div>
-        <div class="pill-soft">Graphic Design</div>
-        <div class="pill-soft">Web</div>
-        <div class="pill-soft">Video</div>
+        <div class="about-card">
+          <p class="about-text">
+            <strong>I don’t just take pictures — I build frames that feel like memories.</strong>
+            My work lives in the space between cinematic and honest, where real people, real streets
+            and real moods all come together.
+          </p>
+          <p class="about-text" style="margin-top:10px;">
+            Portraits, street stories, minimal compositions, product visuals — I treat each project like a
+            visual short film. I think about light, mood, composition, and the feeling a viewer will carry
+            even after they scroll away.
+          </p>
+          <p class="about-text" style="margin-top:10px;">
+            Whether it’s a quiet frame under city neon or a clean studio product shot, I chase depth,
+            subtle details and a black-classic aesthetic. If you’re a brand, an artist or just someone who
+            loves good visuals, we can build something sharp, cinematic and personal together.
+          </p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- ============ FILTER BAR ============ -->
+  <div class="atix-filter" id="gallery">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="portrait">Portrait</button>
+    <button data-filter="street">Street</button>
+    <button data-filter="nature">Nature</button>
+    <button data-filter="landscape">Landscape</button>
+    <button data-filter="product">Product</button>
+    <button data-filter="minimal">Minimal</button>
   </div>
-</section>
 
-<section id="about">
-  <div class="container">
-    <h2 class="about-title">Hi, I’m Atik 👋</h2>
-    <p class="about-text">
-      I enjoy capturing cinematic photos and designing clean
-      visuals. From portraits to brands to websites — everything
-      I create focuses on bold style & storytelling.
-    </p>
+  <!-- ============ GALLERY ============ -->
+  <div class="atix-grid" id="atixGrid"></div>
 
-    <div class="about-card">
-      <div>
-        <h3 class="about-title">Focus</h3>
-        <p class="about-text">
-          Photography · Design · Web · Video —
-          single creative language across all visuals.
-        </p>
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>CONTACT</h2>
+        <p>For shoots, collabs or projects — let’s talk visuals, ideas and how to make them real.</p>
       </div>
 
-      <div>
-        <h3 class="about-title">Tools</h3>
-        <p class="about-text">
-          Photoshop, Lightroom, Illustrator, Premiere, HTML/CSS
-        </p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-list">
+            <div class="contact-row">
+              <div class="contact-label">Primary contact</div>
+              <div class="contact-value">
+                DM me on <a href="https://www.instagram.com/atik_ahmed_paradox" target="_blank" rel="noreferrer">Instagram</a>
+                or <a href="https://www.facebook.com/AtikAhmedPeradox" target="_blank" rel="noreferrer">Facebook</a>.
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Platforms</div>
+              <div class="contact-value">
+                LinkedIn, Fiverr, GitHub and personal site are all linked above and in the About section.
+              </div>
+            </div>
+          </div>
+          <p class="contact-note">
+            Share details like shoot type, location, date, mood references and budget range.
+            The clearer the brief, the better the final visuals.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <form class="contact-form" onsubmit="return false;">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="message">Project / Shoot details</label>
+              <textarea id="message" placeholder="Tell me about the shoot, mood, location and timeline..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary">
+              SEND (FRONT-END ONLY)
+            </button>
+            <p class="contact-note">
+              This form is static on GitHub Pages. For real submissions, you can later connect it with a
+              service like Formspree, Netlify Forms or your own backend — or just keep using DMs.
+            </p>
+          </form>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="atix-foot">
+    © 2025 <a href="https://www.facebook.com/AtikAhmedPeradox" target="_blank" rel="noreferrer">Atik Ahmed</a> — Visual Photographer &amp; Cinematographer · Black Classic Visuals
   </div>
-</section><!-- WORLDS -->
-<section id="worlds" style="padding:3rem 0;">
-  <div class="container">
-    <h2 class="about-title">Worlds I Create In</h2>
-    <p class="about-text">Four worlds. One visual language.</p>
 
-    <div class="about-card" style="margin-top:1.6rem;">
-      <h3 class="about-title">Photography</h3>
-      <p class="about-text">
-        Portrait · Street · Minimal · Nature
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3 class="about-title">Graphic Design</h3>
-      <p class="about-text">
-        Logo · Poster · Brand · Social
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3 class="about-title">Web Creation</h3>
-      <p class="about-text">
-        Portfolio · Business · Landing Page
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3 class="about-title">Video Editing</h3>
-      <p class="about-text">
-        Cinematic Cuts · Promo Videos · Social Clips
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- HIGHLIGHTS -->
-<section id="work" style="padding:3rem 0;">
-  <div class="container">
-    <h2 class="about-title">Highlights</h2>
-    <p class="about-text">Sample work directions I love.</p>
-
-    <div class="about-card" style="margin-top:1.4rem;">
-      <h3 class="about-title">Portrait & Street</h3>
-      <p class="about-text">
-        Cinematic & expressive frames. Clean light & contrast.
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3 class="about-title">Monochrome Posters</h3>
-      <p class="about-text">
-        Bold typography · Scroll stopper visuals.
-      </p>
-    </div>
-
-    <div class="about-card">
-      <h3 class="about-title">Portfolio Websites</h3>
-      <p class="about-text">
-        Story-first clean web layouts.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" style="padding:3rem 0;">
-  <div class="container">
-    <h2 class="about-title">Let’s create together</h2>
-    <p class="about-text">Drop a msg for projects or collab ✨</p>
-
-    <div class="about-card" style="margin-top:1.4rem;">
-      <p class="about-text">Email</p>
-      <a href="mailto:atik.magicbox@gmail.com"
-         style="color:#22d3ee;font-size:1rem;word-break:break-all;">
-         atik.magicbox@gmail.com
-      </a>
-
-      <br><br>
-
-      <p class="about-text">WhatsApp</p>
-      <a href="https://wa.me/" target="_blank"
-         style="color:#22d3ee;font-size:1rem;">
-         Add your WhatsApp link
-      </a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer style="padding:1.7rem 0;text-align:center;color:var(--text-muted);font-size:0.8rem;">
-  © Atik Ahamed · All rights reserved · Every pixel tells a story.
-</footer>
-
-</div>
-
-<script>
-// smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-  link.addEventListener("click",ev=>{
-    ev.preventDefault();
-    document.querySelector(link.getAttribute("href")).scrollIntoView({
-      behavior:"smooth"
+  <!-- ============ SCRIPTS ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <script>
+    /* ===== HERO SLIDES ===== */
+    const hero = document.getElementById('top');
+    const heroImgs = [
+      "https://atikahmed.online/wp-content/uploads/2025/11/518272283_122182492982294930_2050981051542680339_n.jpg",
+      "https://atikahmed.online/wp-content/uploads/2025/11/571150340_1277789244103173_1276861867954818685_n.jpg",
+      "https://atikahmed.online/wp-content/uploads/2025/11/481170693_1093265365888896_1190226031263237488_n.jpg",
+      "https://atikahmed.online/wp-content/uploads/2025/11/517380497_122181225188294930_6246429145065925781_n.jpg"
+    ];
+    heroImgs.forEach((url,i)=>{
+      const d=document.createElement('div');
+      d.className='slide'+(i===0?' active':'');
+      d.style.backgroundImage=`url('${url}')`;
+      hero.appendChild(d);
     });
-  });
-});
-</script>
+    setInterval(()=>{
+      const slides=[...hero.querySelectorAll('.slide')];
+      if(!slides.length) return;
+      let act=slides.findIndex(s=>s.classList.contains('active'));
+      slides[act].classList.remove('active');
+      slides[(act+1)%slides.length].classList.add('active');
+    },4000);
 
+    /* ===== IMAGES (ALL LINKS + CATEGORY) ===== */
+    const ATIX_IMG = [
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/516504411_122181081686294930_1354981258063084187_n.jpg",cat:"portrait"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/518272283_122182492982294930_2050981051542680339_n.jpg",cat:"portrait"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/517380497_122181225188294930_6246429145065925781_n.jpg",cat:"portrait"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/515917675_122180909330294930_6412642543653442749_n-1.jpg",cat:"portrait"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/515701029_122180606312294930_8531120020715119637_n.jpg",cat:"portrait"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/515676202_122180304962294930_200632359381297375_n.jpg",cat:"street"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/514766079_122180165198294930_8087572383171174875_n.jpg",cat:"street"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/506184247_1172079804674118_8297082392923591569_n.jpg",cat:"street"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/503981971_1166300098585422_716463166059436761_n.jpg",cat:"street"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/500526478_1159899559225476_4782436403389033571_n.jpg",cat:"street"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/499537030_1156436692905096_7357879002752437011_n.jpg",cat:"nature"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/495317506_1146991660516266_7007725301452082841_n.jpg",cat:"nature"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/494692885_1141353357746763_4191064276890114527_n.jpg",cat:"nature"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/492520125_1136970458185053_6091905134789172071_n.jpg",cat:"nature"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/491916284_1136970561518376_4560275798384185514_n.jpg",cat:"nature"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/492353076_1136970658185033_9081283128460695406_n.jpg",cat:"landscape"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/492328431_1136970704851695_1155705116767128978_n.jpg",cat:"landscape"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/492075621_1136970791518353_4554308702049214202_n.jpg",cat:"landscape"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/490756596_658425630273720_795771204020262550_n.jpg",cat:"landscape"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/487288972_644543378328612_1170698627005025773_n.jpg",cat:"landscape"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/481082450_1094377119111054_6711191303065219649_n.jpg",cat:"product"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/481193322_1093793455836087_603853839129532540_n.jpg",cat:"product"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/481073688_1093793115836121_8496777188296230825_n.jpg",cat:"product"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/480685281_1093276419221124_3994499737615266866_n.jpg",cat:"product"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/481461411_1093265772555522_8378009925105348914_n.jpg",cat:"product"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/481170693_1093265365888896_1190226031263237488_n.jpg",cat:"minimal"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/487292846_644542258328724_4577369689483170275_n.jpg",cat:"minimal"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/571150340_1277789244103173_1276861867954818685_n.jpg",cat:"minimal"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/558878836_1261260919089339_5749930142615789569_n.jpg",cat:"minimal"},
+      {url:"https://atikahmed.online/wp-content/uploads/2025/11/558892189_1261261162422648_5340520421271733303_n.jpg",cat:"minimal"}
+    ];
+
+    /* ===== BUILD GALLERY ===== */
+    const grid=document.getElementById('atixGrid');
+    ATIX_IMG.forEach((i,idx)=>{
+      const el=document.createElement('figure');
+      el.className=`atix-card ${i.cat}`;
+      el.setAttribute('data-cat',i.cat);
+      el.innerHTML=`<a href="${i.url}" data-lightbox="atik"><img loading="lazy" src="${i.url}" alt=""></a>`;
+      grid.appendChild(el);
+      setTimeout(()=>el.classList.add('visible'),100+idx*30);
+    });
+
+    /* ===== FILTER ===== */
+    document.querySelectorAll('.atix-filter button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.atix-filter button').forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+        const f=btn.dataset.filter;
+        document.querySelectorAll('.atix-card').forEach(c=>{
+          c.style.display=(f==='all'||c.classList.contains(f))?'inline-block':'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
