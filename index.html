@@ -34,6 +34,9 @@
       overflow-x:hidden;
       scroll-behavior:smooth;
     }
+    body{
+      padding-top:82px; /* fixed header gap */
+    }
     a{text-decoration:none;color:inherit;}
 
     .container{
@@ -43,33 +46,31 @@
       padding:0 20px;
     }
 
-    /* ================= NAVBAR (ONLY LOGO + LINKS, CENTERED) ================= */
+    /* ================= NAVBAR ================= */
     header{
-      position:sticky;
-      top:0;
+      position:fixed;
+      top:0;left:0;right:0;
       z-index:50;
       backdrop-filter:blur(14px);
-      background:linear-gradient(to bottom,rgba(10,14,25,.94),rgba(10,14,25,.88));
+      background:linear-gradient(to bottom,rgba(10,14,25,.96),rgba(10,14,25,.9));
       border-bottom:1px solid var(--ring-soft);
     }
     .nav{
       display:flex;
-      flex-direction:column;
       align-items:center;
-      justify-content:center;
-      padding:8px 0 10px;
-      gap:6px;
+      justify-content:space-between;
+      padding:10px 0;
+      gap:10px;
     }
     .nav-left{
       display:flex;
       align-items:center;
-      justify-content:center;
+      gap:10px;
     }
     .nav-logo{
       width:62px;
       height:62px;
       overflow:hidden;
-      /* no bg, no border under logo as you said */
     }
     .nav-logo img{
       width:100%;
@@ -78,7 +79,6 @@
       display:block;
       filter:drop-shadow(0 0 12px rgba(0,0,0,.8));
     }
-    /* no title text now */
 
     .nav-links{
       display:flex;
@@ -87,12 +87,15 @@
       letter-spacing:.18em;
       text-transform:uppercase;
       flex-wrap:wrap;
-      justify-content:center;
+      justify-content:flex-end;
     }
     .nav-links a{
       color:var(--muted);
       position:relative;
       padding-bottom:2px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
     }
     .nav-links a::after{
       content:"";
@@ -108,12 +111,20 @@
     .nav-links a:hover::after{
       width:100%;
     }
+    .nav-icon{
+      font-size:12px;
+      opacity:.8;
+    }
     @media(max-width:720px){
+      .nav{
+        padding:8px 0;
+      }
+      .nav-logo{width:54px;height:54px;}
       .nav-links{gap:10px;font-size:9px;}
-      .nav-logo{width:56px;height:56px;}
+      .nav-icon{font-size:11px;}
     }
 
-    /* ================= HERO (LINKEDIN RATIO, CENTERED) ================= */
+    /* ================= HERO (LINKEDIN RATIO) ================= */
     .hero{
       position:relative;
       width:100%;
@@ -151,7 +162,6 @@
     .hero-overlay{
       position:absolute;
       inset:0;
-      /* medium overlay: না বেশি ডার্ক, না বেশি লাইট */
       background:
         radial-gradient(circle at top,rgba(56,189,248,.22),transparent 65%),
         linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.4),rgba(0,0,0,.18));
@@ -285,11 +295,11 @@
 
     /* ================= SECTIONS ================= */
     .section{
-      padding:56px 0;
+      padding:48px 0;
     }
     .section-head{
       margin-bottom:24px;
-      text-align:left;
+      text-align:center;
     }
     .section-head h2{
       margin:0 0 6px;
@@ -298,7 +308,7 @@
       text-transform:uppercase;
     }
     .section-head p{
-      margin:0;
+      margin:0 auto;
       font-size:13px;
       color:var(--muted);
       max-width:520px;
@@ -308,8 +318,10 @@
     .about-grid{
       display:grid;
       grid-template-columns:280px minmax(0,1fr);
-      gap:26px;
+      gap:22px;
       align-items:flex-start;
+      max-width:960px;
+      margin:0 auto;
     }
     .card{
       border-radius:var(--radius);
@@ -428,6 +440,8 @@
       margin-bottom:24px;
       overflow-x:auto;
       padding-bottom:6px;
+      max-width:960px;
+      margin-inline:auto;
     }
     .featured-slider::-webkit-scrollbar{
       height:4px;
@@ -571,6 +585,8 @@
       display:grid;
       grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr);
       gap:26px;
+      max-width:960px;
+      margin:0 auto;
     }
     .contact-chips{
       display:grid;
@@ -728,16 +744,16 @@
           </div>
         </div>
         <div class="nav-links">
-          <a href="#hero">Hero</a>
-          <a href="#meet-atik">Meet Atik</a>
-          <a href="#my-work">My Photography</a>
-          <a href="#contact">Contact</a>
+          <a href="#hero"><i class="fa-solid fa-house nav-icon"></i><span>Home</span></a>
+          <a href="#meet-atik"><i class="fa-solid fa-user nav-icon"></i><span>Meet Atik</span></a>
+          <a href="#my-work"><i class="fa-solid fa-camera nav-icon"></i><span>My Work</span></a>
+          <a href="#contact"><i class="fa-regular fa-paper-plane nav-icon"></i><span>Contact</span></a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (LINKEDIN RATIO, CENTERED) -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg">
       <div class="hero-slide active" style="background-image:url('https://atikahmed.online/wp-content/uploads/2025/11/544623229_122096112861015575_663756145720099918_n.jpg');"></div>
@@ -1013,7 +1029,6 @@
 
     const grid = document.getElementById('galleryGrid');
 
-    // Build gallery
     ATIX_IMG.forEach((item, idx) => {
       const fig = document.createElement('figure');
       fig.className = `gallery-card ${item.cat}`;
@@ -1027,7 +1042,6 @@
       setTimeout(() => fig.classList.add('visible'), 100 + idx * 30);
     });
 
-    // Filter buttons
     document.querySelectorAll('.filter-bar button').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-bar button').forEach(b => b.classList.remove('active'));
